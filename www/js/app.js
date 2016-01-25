@@ -31,43 +31,55 @@ angular.module('starter', ['ionic', 'ngCordova'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-  .state('app.search', {
-    url: '/search',
+  .state('app.dialogs', {
+    url: '/dialogs',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/dialogs.html',
+        controller: 'DialogsCtrl'
       }
     }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  }).state('app.device', {
+    url: '/device',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/device.html',
+        controller: 'DeviceCtrl'
+      }
+    }
+  }).state('app.network', {
+    url: '/network',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/network.html',
+        controller: 'NetworkCtrl'
+      }
+    }
+  }).state('app.vibration', {
+    url: '/vibration',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/vibration.html',
+        controller: 'VibrationCtrl'
+      }
+    }
+  }).state('app.barcode_scanner', {
+    url: '/barcode_scanner',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/barcode_scanner.html',
+        controller: 'BarcodeScannerCtrl'
+      }
+    }
+  }).state('app.camera', {
+    url: '/camera',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/camera.html',
+        controller: 'CameraCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/dialogs');
 });
