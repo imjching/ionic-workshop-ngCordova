@@ -4,12 +4,12 @@ angular.module('starter')
   // REF: http://ngcordova.com/docs/plugins/dialogs/
 
   // alert(message, title, buttonName)
-  $scope.alert = function () {
+  $scope.alert = function() {
     $cordovaDialogs.alert('Wow!', 'Alert Title', 'Dismiss');
   };
 
   // confirm(message, title, buttonArray)
-  $scope.confirm = function () {
+  $scope.confirm = function() {
     $cordovaDialogs.confirm('Are you sure?', 'Confirmation', ['Yes', 'No'])
       .then(function(buttonIndex) {
         // no button = 0, 'Yes' = 1, 'No' = 2
@@ -18,7 +18,7 @@ angular.module('starter')
   };
 
   // prompt(message, title, buttonArray, defaultText)
-  $scope.prompt = function () {
+  $scope.prompt = function() {
     $cordovaDialogs.prompt('Please Login', 'Login', ['Login', 'Cancel'], 'Change me')
       .then(function(result) {
         var input = result.input1;
@@ -30,7 +30,7 @@ angular.module('starter')
   };
 
   // beep(repetitions)
-  $scope.beep = function () {
+  $scope.beep = function() {
     // beep 1 time
     $cordovaDialogs.beep(1);
   };
@@ -39,11 +39,11 @@ angular.module('starter')
 .controller('DeviceCtrl', function($cordovaDevice, $scope) {
   // REF: http://ngcordova.com/docs/plugins/device/
 
-  $scope.device = function () {
+  $scope.device = function() {
     $scope.results = $cordovaDevice.getDevice();
   };
 
-  $scope.cordovaVersion = function () {
+  $scope.cordovaVersion = function() {
     $scope.results = $cordovaDevice.getCordova();
   };
 
@@ -51,7 +51,7 @@ angular.module('starter')
     $scope.results = $cordovaDevice.getModel();
   };
 
-  $scope.devicePlatform = function () {
+  $scope.devicePlatform = function() {
     $scope.results = $cordovaDevice.getPlatform();
   };
 
@@ -59,7 +59,7 @@ angular.module('starter')
     $scope.results = $cordovaDevice.getUUID();
   };
 
-  $scope.deviceVersion = function () {
+  $scope.deviceVersion = function() {
     $scope.results = $cordovaDevice.getVersion();
   };
 
@@ -92,7 +92,7 @@ angular.module('starter')
 .controller('VibrationCtrl', function($cordovaVibration, $scope) {
   // REF: http://ngcordova.com/docs/plugins/vibration/
 
-  $scope.vibrate = function () {
+  $scope.vibrate = function() {
     $cordovaVibration.vibrate(500);
   };
 })
@@ -100,21 +100,21 @@ angular.module('starter')
 .controller('BarcodeScannerCtrl', function($cordovaBarcodeScanner, $scope, $cordovaDialogs) {
   // REF: http://ngcordova.com/docs/plugins/barcodeScanner/
 
-  $scope.scan = function () {
-    $cordovaBarcodeScanner.scan().then(function (imageData) {
+  $scope.scan = function() {
+    $cordovaBarcodeScanner.scan().then(function(imageData) {
       // Success! Barcode data is here
       $scope.results = imageData;
-    }, function (err) {
+    }, function(err) {
       // An error occured. Show a message to the user
       $cordovaDialogs.alert('Error scanning: ' + err, 'Error!');
     });
   };
 
-  $scope.lookup = function () {
+  $scope.lookup = function() {
     window.open("http://www.upcindex.com/" + $scope.results.text, "_system");
   };
 
-  $scope.reset = function () {
+  $scope.reset = function() {
     $scope.results = null;
   };
 })
@@ -122,7 +122,7 @@ angular.module('starter')
 .controller('CameraCtrl', function($cordovaCamera, $scope, $cordovaDialogs) {
   // REF: http://ngcordova.com/docs/plugins/camera/
 
-  $scope.takePicture = function () {
+  $scope.takePicture = function() {
     var options = {
       quality : 100,
       destinationType : Camera.DestinationType.DATA_URL,
@@ -136,24 +136,24 @@ angular.module('starter')
       correctOrientation: true
     };
 
-    $cordovaCamera.getPicture(options).then(function (imageData) {
+    $cordovaCamera.getPicture(options).then(function(imageData) {
       // Success! Image data is here
       $scope.imgSrc = "data:image/jpeg;base64," + imageData;
-    }, function (err) {
+    }, function(err) {
       $cordovaDialogs.alert('An error occurred: ' + err, 'Error!');
     });
   };
 
-  $scope.selectPicture = function () {
+  $scope.selectPicture = function() {
     var options = {
       destinationType: Camera.DestinationType.FILE_URI,
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY
     };
 
-    $cordovaCamera.getPicture(options).then(function (imageUri) {
+    $cordovaCamera.getPicture(options).then(function(imageUri) {
       // Success! Image data is here
       $scope.imgSrc = imageUri;
-    }, function (err) {
+    }, function(err) {
       $cordovaDialogs.alert('An error occurred: ' + err, 'Error!');
     });
   };
