@@ -78,6 +78,14 @@ angular.module('starter', ['ionic', 'ngCordova'])
         controller: 'CameraCtrl'
       }
     }
+  }).state('app.pin_dialog', {
+    url: '/pin_dialog',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/pin_dialog.html',
+        controller: 'PinDialogCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/dialogs');

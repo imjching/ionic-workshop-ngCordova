@@ -157,4 +157,18 @@ angular.module('starter')
       $cordovaDialogs.alert('An error occurred: ' + err, 'Error!');
     });
   };
+})
+
+.controller('PinDialogCtrl', function($cordovaPinDialog, $scope, $cordovaDialogs) {
+
+  $scope.request = function() {
+    $cordovaPinDialog.prompt('Enter your PIN').then(
+      function(result) {
+        $cordovaDialogs.alert('You have entered ' + result, 'Success');
+      },
+      function (error) {
+        $cordovaDialogs.alert('You have an error: ' + error, 'Error');
+    });
+  }
+
 });
