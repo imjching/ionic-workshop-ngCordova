@@ -164,7 +164,7 @@ angular.module('starter')
   $scope.request = function() {
     $cordovaPinDialog.prompt('Enter your PIN').then(
       function(result) {
-        $cordovaDialogs.alert('You have entered ' + result, 'Success');
+        $cordovaDialogs.alert('You have entered ' + JSON.stringify(result), 'Success');
       },
       function (error) {
         $cordovaDialogs.alert('You have an error: ' + error, 'Error');
@@ -178,19 +178,19 @@ angular.module('starter')
   $scope.checkSupport = function() {
     $cordovaTouchID.checkSupport().then(function() {
       // success, TouchID supported
-      $scope.result = 'TouchID supported';
+      $scope.results = 'TouchID supported';
     }, function (error) {
-      $scope.result = 'TouchID not supported. Error: ' + error;
+      $scope.results = 'TouchID not supported. Error: ' + error;
     });
   };
 
   $scope.authenticate = function() {
     $cordovaTouchID.authenticate("text").then(function() {
       // success
-      $scope.result = 'Success!';
+      $scope.results = 'Success!';
     }, function () {
       // error
-      $scope.result = 'Failed to authenticate';
+      $scope.results = 'Failed to authenticate';
     });
   };
 
