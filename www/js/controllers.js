@@ -169,6 +169,29 @@ angular.module('starter')
       function (error) {
         $cordovaDialogs.alert('You have an error: ' + error, 'Error');
     });
-  }
+  };
+
+})
+
+.controller('TouchIdCtrl', function($cordovaTouchID, $scope, $cordovaDialogs) {
+
+  $scope.checkSupport = function() {
+    $cordovaTouchID.checkSupport().then(function() {
+      // success, TouchID supported
+      $scope.result = 'TouchID supported';
+    }, function (error) {
+      $scope.result = 'TouchID not supported. Error: ' + error;
+    });
+  };
+
+  $scope.authenticate = function() {
+    $cordovaTouchID.authenticate("text").then(function() {
+      // success
+      $scope.result = 'Success!';
+    }, function () {
+      // error
+      $scope.result = 'Failed to authenticate';
+    });
+  };
 
 });

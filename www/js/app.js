@@ -86,6 +86,14 @@ angular.module('starter', ['ionic', 'ngCordova'])
         controller: 'PinDialogCtrl'
       }
     }
+  }).state('app.touchid', {
+    url: '/touchid',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/touchid.html',
+        controller: 'TouchIdCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/dialogs');
