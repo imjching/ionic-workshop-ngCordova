@@ -94,6 +94,14 @@ angular.module('starter', ['ionic', 'ngCordova'])
         controller: 'TouchIdCtrl'
       }
     }
+  }).state('app.toast', {
+    url: '/toast',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/toast.html',
+        controller: 'ToastCtrl as vm'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/dialogs');

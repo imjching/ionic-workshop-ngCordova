@@ -1,0 +1,30 @@
+<ion-view view-title="Toast">
+  <ion-content class="has-header padding">
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Message" ng-model="vm.message">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Duration
+        </div>
+        <select ng-model="vm.duration">
+          <option>short</option>
+          <option>long</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Position
+        </div>
+        <select ng-model="vm.position">
+          <option value="top">top</option>
+          <option value="center">center</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </label>
+    </div>
+    <button class="button button-full button-balanced" ng-click="vm.toast()">Toast</button>
+    {{ vm.results }}
+  </ion-content>
+</ion-view>

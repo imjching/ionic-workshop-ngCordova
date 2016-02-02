@@ -194,4 +194,19 @@ angular.module('starter')
     });
   };
 
+})
+
+.controller('ToastCtrl', function($cordovaToast) {
+  var vm = this;
+
+  vm.toast = function() {
+    $cordovaToast.show(vm.message, vm.duration, vm.position).then(function(success) {
+      // success
+      vm.results = 'Success: ' + success;
+    }, function (error) {
+      // error
+      vm.results = 'Error: ' + error;
+    });
+  };
+
 });
